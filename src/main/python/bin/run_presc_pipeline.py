@@ -7,6 +7,7 @@ import logging.config
 import os
 from presc_run_data_ingest import load_files
 from presc_run_data_preprocessing import perform_data_clean
+from presc_run_data_transform import city_report, top_5_Prescribers
 
 logging.config.fileConfig(fname="../util/logging_to_file.conf")
 def main():
@@ -55,6 +56,14 @@ def main():
         df_top10_rec(df_city_sel, "US City DataFrame Selected")
         df_top10_rec(df_fact_sel, "US Fact DataFrame Selected")
         df_print_schema(df_fact_sel, "US Fact Dataframe Selected Columns")
+
+        df_city_final = city_report(df_city_sel, df_fact_sel)
+        df_top10_rec(df_city_final, "US City Report Final")
+        df_print_schema(df_city_final, "US City Report Final Columns")
+
+        df_presc_final = top_5_Prescribers(df_fact_sel)
+        df_top10_rec(df_presc_final, "US Prescriber Report Final")
+        df_print_schema(df_presc_final, "US Prescriber Report Final Columns")
 
         logging.info("Run Prescriber Pipeline has been completed")
 
