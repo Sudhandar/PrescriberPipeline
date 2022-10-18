@@ -1,3 +1,3 @@
 ## Project Workflow
 
-![alt text](https://github.com/Sudhandar/PrescPipelone/blob/main/images/Pipeline.png)
+![alt text](https://github.com/Sudhandar/PrescriberPipeline/blob/master/images/Pipeline.png)
